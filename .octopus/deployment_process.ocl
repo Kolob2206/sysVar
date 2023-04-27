@@ -1,0 +1,28 @@
+step "deploy-a-package" {
+    name = "Deploy a Package"
+    properties = {
+        Octopus.Action.TargetRoles = "poll1"
+    }
+
+    action {
+        action_type = "Octopus.TentaclePackage"
+        properties = {
+            Octopus.Action.EnabledFeatures = ",Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
+            Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "False"
+            Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "False"
+            Octopus.Action.Package.DownloadOnTentacle = "False"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
+            Octopus.Action.Package.PackageId = "api-package"
+        }
+        worker_pool_variable = ""
+
+        packages {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "api-package"
+            properties = {
+                SelectionMode = "immediate"
+            }
+        }
+    }
+}
