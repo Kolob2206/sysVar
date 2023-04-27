@@ -31,7 +31,7 @@ step "deploy-a-package" {
 step "run-a-script" {
     name = "Run a Script"
     properties = {
-        Octopus.Action.TargetRoles = "poll1"
+        Octopus.Action.TargetRoles = "poll2"
     }
 
     action {
