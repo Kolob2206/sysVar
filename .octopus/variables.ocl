@@ -1,0 +1,3 @@
+variable "hi" {
+    value "howdy" {}
+}
