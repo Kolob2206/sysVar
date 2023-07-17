@@ -39,7 +39,7 @@ step "run-a-script" {
         action_type = "Octopus.Script"
         properties = {
             Octopus.Action.RunOnServer = "false"
-            Octopus.Action.Script.ScriptBody = "write-host #{Octopus.Action[Deploy a Package].Output.Package.InstallationDirectoryPath}"
+            Octopus.Action.Script.ScriptBody = "write-host 'hi'"
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
